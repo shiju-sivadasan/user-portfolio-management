@@ -1,0 +1,36 @@
+{% extends 'userview/base.html' %} {% load static %} <br />
+{% block sidebarimg %} {% for x in portfolio %}<img
+  src="{{ x.profile_pic.url }}"
+  alt="profile image"
+  class="img-responsive rounded"
+/>
+{% endfor %}{% endblock %} {% block sidebarname %} {% for x in portfolio %}
+<i class="p-5">{{ x.name }}</i>
+{% endfor %} {% endblock %} {% block heroimg %}{% for x in portfolio %}<img
+  src="{{ x.profile_pic.url }}"
+  alt="profile image"
+  class="img-responsive rounded"
+  style="object-fit: scale-down"
+/>{% endfor %} {% endblock %} {% block about %} {% for x in portfolio %}<br />
+{{ x.about }}
+<br />{% endfor %}{% endblock %}<br /><br />
+{% block dob %}{% for x in portfolio %}{{ x.date_of_birth }}{% endfor %}<br />
+{% endblock %}<br />
+{% block marital_status %}{% for x in portfolio %}{{ x.marital_status }} {% endfor %} {% endblock %}
+{% block nationality %}{% for x in portfolio %} 
+{{ x.nationality }} {% endfor %} {% endblock %} {% block email %}
+{% for x in portfolio %}{{ x.email }}{% endfor %} {% endblock %} {% block phone %} 
+{% for x in portfolio %} {{ x.phone }}{% endfor %} {% endblock %} {% block linkedin %}
+{% for x in portfolio %} {{ x.linkedin }}{% endfor %} {% endblock %} 
+{% block skills %}{% for x in portfolio %}
+<div class="container"><b>{{ x.skills }}</b>{% endfor %}{% endblock %}</div>
+{% block education %}{% for x in portfolio %}{{ x.education }}{% endfor %}{% endblock %}
+{% block experience %}{% for x in portfolio %}{{ x.experience }}{% endfor %}{% endblock %}
+{% block certification %}{% for x in portfolio %}{{ x.certification }}{% endfor %}{% endblock %}
+{% block project %}{% for x in portfolio %}<b>{{ x.project_title }}<b><br><br><hr>
+{{ x.project_description }}<br><br>
+<img src="{{ x.project_img.url }}" alt="project image" style="height:600px;width:800px"><br><br>
+Link : {{ x.project_link }}<br><br><hr>
+<a href="{% url 'portfolio_update' x.id %}" target="_self" class="btn btn-primary success">Update Portfolio</a>
+{% endfor %}{% endblock %}
+

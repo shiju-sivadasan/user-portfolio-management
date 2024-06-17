@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <body>
+    <div class="container-fluid" style="width: 100%; height: 100vh">
+      <div class="row">
+        <div class="col-md-4" style="height: 100vh; background-color: black">
+          <br />
+          <h1 style="color: white">Welcome To Portfolio Project</h1>
+          <div class="wrap">
+            <div class="content">
+              <h2 class="text-center" style="color: white">welcome !</h2>
+              <br />
+              <p style="color: white">
+                The User Portfolio Management project is a web application built
+                using Django, designed to enable users to create, manage, and
+                showcase their personal portfolios. This application provides a
+                secure and user-friendly platform where users can register, log
+                in, and maintain their individual portfolio entries.
+              </p>
+              <ul style="color: white">
+                <li>
+                  Users can register and log in securely using Django's built-in
+                  authentication system. Each user has a unique profile and can
+                  only manage their own portfolio entries, ensuring data privacy
+                  and security.
+                </li>
+                <br />
+                <li>
+                  Authenticated users can create new portfolio entries, which
+                  may include details such as the project title, description,
+                  and creation date. Users can update or delete their portfolio
+                  entries as needed, allowing for easy management and upkeep of
+                  their portfolios.
+                </li>
+                <br />
+                <li>
+                  Each user has a personalized dashboard where they can view a
+                  list of their portfolios. Users can view detailed information
+                  about each portfolio entry and make updates as necessary.
+                  Users can view detailed information about each portfolio entry
+                  and make updates as necessary.
+                </li>
+                <br />
+                <li>
+                  The application is designed to be responsive, ensuring a
+                  seamless experience across various devices, including
+                  desktops, tablets, and smartphones.Admin users have special
+                  privileges to view and manage all portfolios, providing
+                  oversight and the ability to maintain the platform
+                  effectively.
+                </li>
+                <br />
+              </ul>
+            </div>
+          </div>
+          <a class="button glyphicon glyphicon-plus" href="#"></a>
+        </div>
+        <div class="col-md-8">
+          <form
+            method="post"
+            enctype="multipart/form-data"
+            class="form-control p-4 mt-4"
+          >
+            {% csrf_token %}
+            <h1>Register</h1>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label"
+                >Username
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput1"
+                placeholder="Enter your username"
+                name="username"
+              />
+              {% if messages %}
+              {% for msg in messages %}
+              {{ msg }}
+              {% endfor %}
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label for="exampleFormControlInput4" class="form-label"
+                >Email
+              </label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleFormControlInput4"
+                placeholder="Enter your mail"
+                name="email"
+              />
+              {% if messages %}
+              {% for msg in messages %}
+              {{ msg }}
+              {% endfor %}
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput5" class="form-label"
+                >Password
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput5"
+                placeholder="Enter your password"
+                name="password"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput6" class="form-label"
+                >Confirm Password
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleFormControlInput6"
+                placeholder="Confirm password"
+                name="cpassword"
+              />
+              {% if messages %}
+              {% for msg in messages %}
+              {{ msg }}
+              {% endfor %}
+              {% endif %}
+            </div>
+            <input type="submit" class="btn btn-primary" value="register" />
+            <br />
+            <hr />
+            <h4>
+              Alread have an account?<a
+                href="{% url 'user_login' %}"
+                target="_self"
+                class="btn btn-primary"
+                style="margin-left: 5px"
+                >Log in</a
+              >
+            </h4>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
